@@ -48,7 +48,7 @@ namespace Arkanoid
             this.Step = 20;
             this.Duration = 3;
             this.PadWidth = 100;
-            this.BallSize = 25;
+            this.BallSize = 26;
 
             switch (a)
             {
