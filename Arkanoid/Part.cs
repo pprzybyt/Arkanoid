@@ -46,7 +46,7 @@ namespace Arkanoid
                 this.Brush = Brushes.Black;
 
             this.Step = 20;
-            this.Duration = 3;
+            this.Duration = 2.5;
             this.PadWidth = 100;
             this.BallSize = 26;
 

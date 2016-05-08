@@ -81,15 +81,6 @@ namespace Arkanoid
             Start();
         }
 
-        private void Canvas_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-      
-        }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
@@ -150,11 +141,6 @@ namespace Arkanoid
             _playBall.Begin(this, true);
         }
 
-        private void window_LayoutUpdated(object sender, EventArgs e)
-        {
-            
-
-        }
           private void ball_LayoutUpdated(object sender, EventArgs e)
         {
              _ballCurrentPosition = ball.Margin;
@@ -190,7 +176,7 @@ namespace Arkanoid
                 AnimateBall(_ballCurrentPosition, _ballNextPosition);
             }
 
-            if (ball.Margin.Left + ball.Width >= grid.Width) 
+            if (ball.Margin.Left + ball.Width >= grid.Width - 8) 
             {
                 _ballNextPosition.Left = 2*_ballCurrentPosition.Left - _ballNextPosition.Left;
 
