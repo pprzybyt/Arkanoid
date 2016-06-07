@@ -8,25 +8,45 @@
             <GradientStop Color="#FF71DE48" Offset="0.635"/>
         </LinearGradientBrush>
     </Window.Background>
-    
 
-        <Grid Name="grid" Width="394" Height="470" Margin="0,0,0,0">
-            <Rectangle Visibility="Hidden" Margin="100,150,0,0" Name="ball"  RadiusX="120" RadiusY="120" Fill="Black" Height="25" Width="25" VerticalAlignment="Top" HorizontalAlignment="Left" LayoutUpdated="ball_LayoutUpdated" />
-            <Rectangle Margin="{Binding Margin}"  Name="block" Stroke="{Binding Brush}" Height="{Binding Height}" Width="{Binding Width}" VerticalAlignment="Top" HorizontalAlignment="Left" StrokeThickness="5" Visibility="Hidden"/>
-            <Rectangle Visibility="Hidden"   Height="10" RadiusX="30" Margin="100,440,0,0" Name="pad" Stroke="Black" VerticalAlignment="Top" Fill="Black" HorizontalAlignment="Left" Width="100" />
-            <Button Name="startButton"  Content="START" Margin="48,157,0,0" Width="300" Height="100" Click="Button_Click" FontSize="36" FontFamily="Gill Sans Ultra Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                        <GradientStop Color="#FFF3F3F3"/>
-                        <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
-                        <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-                        <GradientStop Color="#FF63B85B" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Label Name="scoreLabel" Content="SCORE:" HorizontalAlignment="Left" Height="38" Margin="48,302,0,0" VerticalAlignment="Top" Width="82" FontFamily="Showcard Gothic" FontSize="22" Visibility="Hidden"/>
-            <TextBlock Name="scoreBox" HorizontalAlignment="Left" Margin="269,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="79" FontFamily="Showcard Gothic" FontSize="22" Visibility="Hidden"/>
 
-        </Grid>
-   
+    <Grid Name="grid" Width="394" Height="470" Margin="0,0,0,0" KeyDown="grid_KeyDown">
+        <Rectangle Visibility="Hidden" Margin="100,150,0,0" Name="ball"  RadiusX="120" RadiusY="120" Fill="Black" Height="25" Width="25" VerticalAlignment="Top" HorizontalAlignment="Left" LayoutUpdated="ball_LayoutUpdated" />
+        <Rectangle Margin="{Binding Margin}"  Name="block" Stroke="{Binding Brush}" Height="{Binding Height}" Width="{Binding Width}" VerticalAlignment="Top" HorizontalAlignment="Left" StrokeThickness="5" Visibility="Hidden"/>
+        <Rectangle Visibility="Hidden"   Height="10" RadiusX="30" Margin="100,440,0,0" Name="pad" Stroke="Black" VerticalAlignment="Top" Fill="Black" HorizontalAlignment="Left" Width="100" />
+        <Button Name="startButton"  Content="START" Margin="48,75,0,0" Width="300" Height="100" Click="Button_Click" FontSize="36" FontFamily="Gill Sans Ultra Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF3F3F3"/>
+                    <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                    <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                    <GradientStop Color="#FF63B85B" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Label Name="scoreLabel" Content="SCORE:" HorizontalAlignment="Left" Height="38" Margin="48,302,0,0" VerticalAlignment="Top" Width="82" FontFamily="Showcard Gothic" FontSize="22" Visibility="Hidden"/>
+        <TextBlock Name="scoreBox" HorizontalAlignment="Left" Margin="269,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="79" FontFamily="Showcard Gothic" FontSize="22" Visibility="Hidden"/>
+        <Label Name="continueLabel" Content="Press SPACE to continue" HorizontalAlignment="Left" Height="49" Margin="10,149,0,0" VerticalAlignment="Top" Width="374" RenderTransformOrigin="0.514,-3.343" FontFamily="Gill Sans Ultra Bold" FontSize="21" Visibility="Hidden"/>
+        <Button x:Name="highScoreButton" Content="HIGH SCORES" HorizontalAlignment="Left" Margin="48,175,0,0" VerticalAlignment="Top" Width="300" Height="100" RenderTransformOrigin="0.57,1.01" FontSize="30" FontFamily="Gill Sans Ultra Bold" FontWeight="Bold" Click="highScoreButton_Click" >
+        <Button.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FFF3F3F3"/>
+                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                <GradientStop Color="#FF63B85B" Offset="1"/>
+            </LinearGradientBrush>
+        </Button.Background>
+        </Button>
+        <Button x:Name="aboutButton" Content="ABOUT" HorizontalAlignment="Left" Margin="48,275,0,0" VerticalAlignment="Top" Width="300" Height="100" RenderTransformOrigin="0.57,1.01" FontSize="30" FontFamily="Gill Sans Ultra Bold" FontWeight="Bold" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF3F3F3"/>
+                    <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                    <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                    <GradientStop Color="#FF63B85B" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+
 </Window>

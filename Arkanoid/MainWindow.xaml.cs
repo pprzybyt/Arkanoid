@@ -26,7 +26,8 @@ namespace Arkanoid
         public MainWindow()
         {
             InitializeComponent();
-            InitParticles();          
+            InitParticles();
+            list = new List<Player>();
         }
         
         private Thickness _padStartPosition = new Thickness(150,440,0,0);
@@ -38,16 +39,22 @@ namespace Arkanoid
         ThicknessAnimation _moveTheBall;
         Storyboard _playBall;
         Storyboard _playPad;
-        int _score;
-        Part part;
+       
+        MyPart part;
         int _step;
         double _duration;
         Rect _ballRect;
         Rect _blockRect;
+        bool _gameOver = false;
+        public static List<Player> list;
+        public static int score;
+
+      
+
 
         public void InitParticles()
         {
-            part = new Part(Convert.ToInt16(grid.Width), Convert.ToInt16(pad.Margin.Top), 50);
+            part = new MyPart(Convert.ToInt16(grid.Width), Convert.ToInt16(pad.Margin.Top), 50);
             block.DataContext = part;          
         }
 
@@ -57,27 +64,37 @@ namespace Arkanoid
             _padCurrentPosition = _padStartPosition;
             _ballCurrentPosition = _ballStartPosition;
             _ballNextPosition = new Thickness(grid.Width/2, grid.Height, 0, 0);
-            _score = 0;
-            scoreBox.Text = _score.ToString();
+            score = 0;
+            scoreBox.Text = score.ToString();
             AnimateBall(_ballCurrentPosition,_ballNextPosition);
         }
 
 
         public void Stop()
         {
-            startButton.Content = "AGAIN";
-            startButton.Visibility = Visibility.Visible;
-            block.Visibility = Visibility.Hidden;
+           
+         //   startButton.Content = "AGAIN";
+          //  startButton.Visibility = Visibility.Visible;
+            if (!_gameOver)
+            {
+                continueLabel.Visibility = Visibility.Visible;
+                block.Visibility = Visibility.Hidden;
+            }
+              _gameOver = true;
+        
+
             
         }
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            startButton.Visibility = Visibility.Hidden;
+            startButton.Visibility = highScoreButton.Visibility = aboutButton.Visibility 
+            = Visibility.Hidden;
             ball.Visibility = pad.Visibility = block.Visibility = Visibility.Visible;
             scoreBox.Visibility = scoreLabel.Visibility = Visibility.Visible;
             DefaultSettings();
+            _gameOver = false; 
             Start();
         }
 
@@ -100,6 +117,14 @@ namespace Arkanoid
                 if (pad.Margin.Left + pad.Width >= grid.Width - step)
                     step = Convert.ToInt16(grid.Width - pad.Margin.Left - pad.Width);
                 AnimatePad(step);
+            }
+
+            else if(e.Key == Key.Space && _gameOver)
+            {
+                new HighScores().Show();
+                NewGame();
+
+
             }
 
           
@@ -160,8 +185,8 @@ namespace Arkanoid
                      _ballNextPosition.Left = _ballCurrentPosition.Left + padAngle;
                
                 _ballStartPosition = ball.Margin;
-                _score++;
-                scoreBox.Text = _score.ToString();
+                score++;
+                scoreBox.Text = score.ToString();
                 AnimateBall(_ballCurrentPosition, _ballNextPosition);
             }
 
@@ -207,9 +232,10 @@ namespace Arkanoid
               pad.Width = part.PadWidth;
               _step = part.Step;
               ball.Width = ball.Height = part.BallSize;
-              _score += 500;
-              scoreBox.Text = _score.ToString();
-              part = new Part(Convert.ToInt16(grid.Width), Convert.ToInt16(pad.Margin.Top), 50);
+
+              score += 500;
+              scoreBox.Text = score.ToString();
+              part = new MyPart(Convert.ToInt16(grid.Width), Convert.ToInt16(pad.Margin.Top), 50);
               block.Margin = part.Margin;
               block.Stroke = part.Brush;
           }
@@ -220,6 +246,25 @@ namespace Arkanoid
             _duration = 2.5;
             pad.Width = 100;
             ball.Height = ball.Width = 25;
+        }
+
+        private void NewGame()
+        {
+            startButton.Visibility = highScoreButton.Visibility = aboutButton.Visibility
+            = Visibility.Visible;
+            scoreLabel.Visibility = Visibility.Hidden;
+            scoreBox.Visibility = Visibility.Hidden;
+            continueLabel.Visibility = Visibility.Hidden;
+            
+        }
+        private void grid_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void highScoreButton_Click(object sender, RoutedEventArgs e)
+        {
+            new HighScores(true).Show();
         }
     }
 }

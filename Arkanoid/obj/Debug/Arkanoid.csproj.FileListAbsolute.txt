@@ -24,3 +24,5 @@ C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Debug\Arkanoid_MarkupCo
 C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Debug\Arkanoid.g.resources
 C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Debug\Arkanoid.Properties.Resources.resources
 C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Debug\Arkanoid.csproj.GenerateResource.Cache
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Debug\HighScores.baml
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Debug\HighScores.g.cs

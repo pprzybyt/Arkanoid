@@ -16,7 +16,7 @@ using System.Windows.Media.Animation;
 
 namespace Arkanoid
 {
-    public class Part
+    public class MyPart
     {
         private Random rand = new Random();
         public int WindowX { get; set; }
@@ -32,12 +32,12 @@ namespace Arkanoid
         public int BallSize { get; private set; }
 
 
-        public Part(int x, int y, int size)
+        public MyPart(int x, int y, int size)
         {
             this.WindowX = x;
             this.WindowY = y;
             this.Height = this.Width = size;
-            this.Margin = new Thickness(rand.Next(WindowX - size), rand.Next(WindowY - size), 0, 0);
+            this.Margin = new Thickness(rand.Next(WindowX - size - 8 ), rand.Next(WindowY - size), 0, 0);
 
             int a = rand.Next(8);
             if(a%2==0)
@@ -50,6 +50,12 @@ namespace Arkanoid
             this.PadWidth = 100;
             this.BallSize = 26;
 
+            SetFeature(a);
+
+        }
+
+        private void SetFeature(int a)
+        {
             switch (a)
             {
                 case 0:
@@ -77,7 +83,6 @@ namespace Arkanoid
                     this.BallSize = 40;
                     break;
             }
-
         }
 
     }
