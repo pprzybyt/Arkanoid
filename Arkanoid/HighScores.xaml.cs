@@ -19,17 +19,25 @@ namespace Arkanoid
     /// </summary>
     public partial class HighScores : Window
     {
+        public Player P { get; set; }
+        private List<Label> _names;
+        private List<Label> _scores;
+        private bool _isDisplayed = false;
+        private int _lenght;
+        private int _currentPlayer;
+        public bool IsOnPlatform { get; set; }
+        public bool DisplayOnly { get; set; }
+
         public HighScores()
         {
             InitializeComponent();
             CreateList();
         }
 
-        
 
         public HighScores ( bool displayOnly)
         {
-            this.isDisplayed = displayOnly;
+            this._isDisplayed = displayOnly;
             InitializeComponent();
             CreateList();
             DrawList();
@@ -39,24 +47,16 @@ namespace Arkanoid
             conButton.Content = "BACK";
         }
 
-        public Player P { get; set; }
-        public List<Label> names;
-        public List<Label> scores;
-        public bool isDisplayed = false;
-        public int lenght;
-        public int currentPlayer;
-        public bool IsOnPlatform { get; set; } 
-        public bool DisplayOnly { get;set;}
-
+       
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            if (!isDisplayed)
+            if (!_isDisplayed)
             {
                 if (nameBox.Text == "")
                     MessageBox.Show("Please type in your name");
-                else if(nameBox.Text.Length > 20)
+                else if(nameBox.Text.Length > 13)
                     MessageBox.Show("Name should be shorter");
                 else
                 {
@@ -65,7 +65,7 @@ namespace Arkanoid
             }
             else
             {
-                isDisplayed = false;
+                _isDisplayed = false;
                 MainWindow.score = 0;
                 this.Close();
             }
@@ -74,24 +74,25 @@ namespace Arkanoid
 
         private void CreateList()
         {
-            scores = new List<Label>();
-            scores.Add(score_0);
-            scores.Add(score_1);
-            scores.Add(score_2);
-            scores.Add(score_3);
+            _scores = new List<Label>();
+            _scores.Add(score_0);
+            _scores.Add(score_1);
+            _scores.Add(score_2);
+            _scores.Add(score_3);
 
-            names = new List<Label>();
-            names.Add(label_0);
-            names.Add(label_1);
-            names.Add(label_2);
-            names.Add(label_3);
+            _names = new List<Label>();
+            _names.Add(label_0);
+            _names.Add(label_1);
+            _names.Add(label_2);
+            _names.Add(label_3);
         }
 
         private void AddPlayer()
         {
             P = new Player(nameBox.Text, MainWindow.score);
-            currentPlayer = Player.playerCount;
+            _currentPlayer = Player.playerCount;
             MainWindow.list.Add(P);
+            MainWindow.loader.AddPlayer(P);
             MainWindow.list.Sort();
             titleLabel.Content = "HIGH SCORES:";
             nameBox.Visibility = Visibility.Hidden;
@@ -101,10 +102,10 @@ namespace Arkanoid
 
             DrawList();
 
-            for (int i = 0; i < lenght; i++)
-                if(MainWindow.list[i].ID == currentPlayer)
+            for (int i = 0; i < _lenght; i++)
+                if(MainWindow.list[i].ID == _currentPlayer)
                 {
-                    names[i].Background = Brushes.Black;
+                    _names[i].Background = Brushes.Black;
                     IsOnPlatform = true;
                 }
 
@@ -112,29 +113,30 @@ namespace Arkanoid
             if(!IsOnPlatform)
             {
                 for (int j = 0; j < MainWindow.list.Count; j++)
-                    if (MainWindow.list[j].ID == currentPlayer)
+                    if (MainWindow.list[j].ID == _currentPlayer)
                     {
                         int place = j+1;
-                        names[3].Content = place + ". " + MainWindow.list[j].Name;
-                        scores[3].Content = MainWindow.list[j].Score;
-                        names[3].Background = Brushes.Black;
+                        _names[3].Content = place + ". " + MainWindow.list[j].Name;
+                        _scores[3].Content = MainWindow.list[j].Score;
+                        _names[3].Background = Brushes.Black;
                     }
             }
-            isDisplayed = true;
-          //  scorePanel.Visibility = namePanel.Visibility = Visibility.Visible;
+            _isDisplayed = true;
         }
 
         private void DrawList()
         {
-            if (MainWindow.list.Count >= 3)
-                this.lenght = 3;
-            else
-                this.lenght = MainWindow.list.Count;
 
-            for (int i = 0; i < lenght; i++)
+            MainWindow.list.Sort();
+            if (MainWindow.list.Count >= 3)
+                this._lenght = 3;
+            else
+                this._lenght = MainWindow.list.Count;
+
+            for (int i = 0; i < _lenght; i++)
             {
-                names[i].Content += MainWindow.list[i].Name;
-                scores[i].Content = MainWindow.list[i].Score;
+                _names[i].Content += MainWindow.list[i].Name;
+                _scores[i].Content = MainWindow.list[i].Score;
             }
         }
 

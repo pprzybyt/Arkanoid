@@ -10,7 +10,7 @@
     </Window.Background>
 
 
-    <Grid Name="grid" Width="394" Height="470" Margin="0,0,0,0" KeyDown="grid_KeyDown">
+    <Grid Name="grid" Width="394" Height="470" Margin="0,0,0,0" >
         <Rectangle Visibility="Hidden" Margin="100,150,0,0" Name="ball"  RadiusX="120" RadiusY="120" Fill="Black" Height="25" Width="25" VerticalAlignment="Top" HorizontalAlignment="Left" LayoutUpdated="ball_LayoutUpdated" />
         <Rectangle Margin="{Binding Margin}"  Name="block" Stroke="{Binding Brush}" Height="{Binding Height}" Width="{Binding Width}" VerticalAlignment="Top" HorizontalAlignment="Left" StrokeThickness="5" Visibility="Hidden"/>
         <Rectangle Visibility="Hidden"   Height="10" RadiusX="30" Margin="100,440,0,0" Name="pad" Stroke="Black" VerticalAlignment="Top" Fill="Black" HorizontalAlignment="Left" Width="100" />

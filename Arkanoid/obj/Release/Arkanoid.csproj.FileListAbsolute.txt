@@ -11,3 +11,18 @@ C:\Users\Asus U30JC\documents\visual studio 2013\Projects\Arkanoid\Arkanoid\obj\
 C:\Users\Asus U30JC\documents\visual studio 2013\Projects\Arkanoid\Arkanoid\obj\Release\Arkanoid.exe
 C:\Users\Asus U30JC\documents\visual studio 2013\Projects\Arkanoid\Arkanoid\obj\Release\Arkanoid.pdb
 C:\Users\Asus U30JC\documents\visual studio 2013\Projects\Arkanoid\Arkanoid\obj\Release\Arkanoid.csprojResolveAssemblyReference.cache
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\bin\Release\Arkanoid.exe.config
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Release\Arkanoid.exe
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Release\Arkanoid.pdb
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\bin\Release\Arkanoid.exe
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\bin\Release\Arkanoid.pdb
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Release\Arkanoid.csprojResolveAssemblyReference.cache
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Release\HighScores.baml
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Release\MainWindow.baml
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Release\HighScores.g.cs
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Release\MainWindow.g.cs
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Release\App.g.cs
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Release\Arkanoid_MarkupCompile.cache
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Release\Arkanoid.g.resources
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Release\Arkanoid.Properties.Resources.resources
+C:\Users\Asus U30JC\Desktop\Github\Arkanoid\Arkanoid\obj\Release\Arkanoid.csproj.GenerateResource.Cache
