@@ -51,8 +51,6 @@ namespace Arkanoid
 
         public static RankLoader loader; 
 
-      
-
 
         public void InitParticles()
         {
@@ -60,7 +58,7 @@ namespace Arkanoid
             block.DataContext = _part;          
         }
 
-        public void Start()
+        private void Start()
         {
             _ballStartPosition = new Thickness(150, 100, 0, 0);
             _padCurrentPosition = _padStartPosition;
@@ -72,7 +70,7 @@ namespace Arkanoid
         }
 
 
-        public void Stop()
+        private void Stop()
         {
             if (!_gameOver)
             {
@@ -119,11 +117,7 @@ namespace Arkanoid
             {
                 new HighScores().Show();
                 NewGame();
-
-
             }
-
-          
         }
 
         private void AnimatePad(int step)
@@ -248,14 +242,18 @@ namespace Arkanoid
             = Visibility.Visible;
             scoreLabel.Visibility = Visibility.Hidden;
             scoreBox.Visibility = Visibility.Hidden;
-            continueLabel.Visibility = Visibility.Hidden;
-            
+            continueLabel.Visibility = Visibility.Hidden;   
         }
 
 
         private void highScoreButton_Click(object sender, RoutedEventArgs e)
         {
             new HighScores(true).Show();
+        }
+
+        private void aboutButton_Click(object sender, RoutedEventArgs e)
+        {
+            new About().Show();
         }
     }
 }

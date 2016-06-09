@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace Arkanoid
 {
-    /// <summary>
-    /// Interaction logic for HighScores.xaml
-    /// </summary>
     public partial class HighScores : Window
     {
         public Player P { get; set; }
