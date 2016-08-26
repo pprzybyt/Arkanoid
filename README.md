@@ -6,4 +6,4 @@ Main idea of this app is based on games called "Arkanoids".
 - When the ball moves through squares (randnomly situated in the playing area) player aqquires good or bad bonus (depends on a color of the square)
 - App contains a score list and an intruction ("about" button)
 
-If You have any questions please contact me (pprzybyt@gmail.com) 
+If You have any questions please contact me pprzybyt@gmail.com
