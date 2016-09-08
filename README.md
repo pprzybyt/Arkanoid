@@ -11,7 +11,6 @@ Main idea of this app is based on games called "Arkanoids".
 Language: C#
 
 IDE: Visual Studio 2015
-
 <br>
 <br>
 
