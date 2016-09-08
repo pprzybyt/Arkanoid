@@ -31,56 +31,109 @@ namespace Arkanoid
         public int PadWidth { get; private set; }
         public int BallSize { get; private set; }
 
+        private const int _defaultStep = 20;
+        private const int _defaultBallSize = 25;
+        private const int _defaultPadWidth = 100;
+        private const double _defaultDuration = 2.5;
 
+  
         public MyPart(int x, int y, int size)
         {
+            DefaultFeatures();
+            CreatePart(x, y, size);
+        }
+
+        public MyPart (int x, int y, int size, MyPart m)
+        {
+            LoadFeatures(m);
+            CreatePart(x, y, size);
+        }
+
+        private void CreatePart(int x, int y, int size)    
+          {
             this.WindowX = x;
             this.WindowY = y;
             this.Height = this.Width = size;
-            this.Margin = new Thickness(rand.Next(WindowX - size - 8 ), rand.Next(WindowY - size), 0, 0);
+            this.Margin = new Thickness(rand.Next(WindowX - size - 8), rand.Next(WindowY - size), 0, 0);
 
             int a = rand.Next(8);
-            if(a%2==0)
+            if (a % 2 == 0)
                 this.Brush = Brushes.Red;
             else
                 this.Brush = Brushes.Black;
+            ChooseFeature(a);
 
-            this.Step = 20;
-            this.Duration = 2.5;
-            this.PadWidth = 100;
-            this.BallSize = 26;
-
-            SetFeature(a);
-
+   
         }
 
-        private void SetFeature(int a)
+
+        private void LoadFeatures(MyPart m)
+        {
+            this.Step = m.Step;
+            this.Duration = m.Duration;
+            this.PadWidth = m.PadWidth;
+            this.BallSize = m.BallSize;
+        }
+
+        private void DefaultFeatures()
+        {
+            this.Step = _defaultStep;
+            this.Duration = _defaultDuration;
+            this.PadWidth = _defaultPadWidth;
+            this.BallSize = _defaultBallSize;
+        }
+
+        private void ChooseFeature(int a)
         {
             switch (a)
             {
                 case 0:
-                    this.Step = 4;
+                    if (this.Step <= _defaultStep)
+                        this.Step = 4;
+                    else
+                        this.Step = _defaultStep;
                     break;
                 case 1:
-                    this.Step = 25;
+                    if (this.Step >= _defaultStep)
+                        this.Step = 25;
+                    else
+                        this.Step = _defaultStep;
                     break;
                 case 2:
-                    this.Duration = 1.5;
+                    if (this.Duration <= _defaultDuration)
+                        this.Duration = 1.5;
+                    else
+                        this.Duration = _defaultDuration;
                     break;
                 case 3:
-                    this.Duration = 3.5;
+                    if (this.Duration >= _defaultDuration)
+                        this.Duration = 3.5;
+                    else
+                        this.Duration = _defaultDuration;
                     break;
                 case 4:
-                    this.PadWidth = 50;
+                    if (this.PadWidth <= _defaultPadWidth)
+                        this.PadWidth = 50;
+                    else
+                        this.PadWidth = _defaultPadWidth;
                     break;
                 case 5:
-                    this.PadWidth = 150;
+                    if (this.PadWidth >= _defaultPadWidth)
+                        this.PadWidth = 150;
+                    else
+                        this.PadWidth = _defaultPadWidth;
                     break;
                 case 6:
-                    this.BallSize = 15;
+                    if (this.BallSize <= _defaultBallSize)
+                        this.BallSize = 15;
+                    else
+                        this.BallSize = _defaultBallSize;
                     break;
                 case 7:
-                    this.BallSize = 40;
+                    if (this.BallSize >= _defaultBallSize)
+                        this.BallSize = 40;
+                    else
+                        this.BallSize = _defaultBallSize;
                     break;
             }
         }

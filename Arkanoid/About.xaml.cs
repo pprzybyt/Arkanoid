@@ -51,9 +51,18 @@ namespace Arkanoid
 
         private void FillImage()
         {
-            BitmapImage bitmapImage = new BitmapImage(_instruction[_counter]);
-            image.Source = bitmapImage;
 
+            try
+            {
+                BitmapImage bitmapImage = new BitmapImage(_instruction[_counter]);
+                image.Source = bitmapImage;
+            }
+            catch(FileNotFoundException)
+            {
+                MessageBox.Show("INSTRUCTION LOADING ERROR");
+                _counter = _instruction.Count - 1;
+            }
+       
             _counter++;
         }
     }

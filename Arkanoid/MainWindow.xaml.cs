@@ -66,6 +66,7 @@ namespace Arkanoid
             _ballNextPosition = new Thickness(grid.Width/2, grid.Height, 0, 0);
             score = 0;
             scoreBox.Text = score.ToString();
+            _part = new MyPart(Convert.ToInt16(grid.Width), Convert.ToInt16(pad.Margin.Top), 50);
             AnimateBall(_ballCurrentPosition,_ballNextPosition);
         }
 
@@ -76,6 +77,7 @@ namespace Arkanoid
             {
                 continueLabel.Visibility = Visibility.Visible;
                 block.Visibility = Visibility.Hidden;
+                
             }
               _gameOver = true;
         }
@@ -116,6 +118,7 @@ namespace Arkanoid
             else if(e.Key == Key.Space && _gameOver)
             {
                 new HighScores().Show();
+                DefaultSettings();
                 NewGame();
             }
         }
@@ -223,7 +226,7 @@ namespace Arkanoid
 
               score += 500;
               scoreBox.Text = score.ToString();
-              _part = new MyPart(Convert.ToInt16(grid.Width), Convert.ToInt16(pad.Margin.Top), 50);
+              _part = new MyPart(Convert.ToInt16(grid.Width), Convert.ToInt16(pad.Margin.Top), 50,_part);
               block.Margin = _part.Margin;
               block.Stroke = _part.Brush;
           }
