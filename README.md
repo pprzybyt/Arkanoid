@@ -15,3 +15,5 @@ IDE: Visual Studio 2015
 <br>
 
 If You have any questions please contact me on pprzybyt@gmail.com
+
+<img src="ball.png">
