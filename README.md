@@ -7,3 +7,5 @@ Main idea of this app is based on games called "Arkanoids".
 - App contains a score list and an intruction ("about" button)
 
 If You have any questions please contact me pprzybyt@gmail.com
+
+<img src="screen.png">
