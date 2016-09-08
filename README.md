@@ -8,4 +8,5 @@ Main idea of this app is based on games called "Arkanoids".
 
 If You have any questions please contact me pprzybyt@gmail.com
 
-<img src="screen.png">
+
+<img src="azzure.jpg">
